@@ -76,7 +76,7 @@ export default function OutputPage() {
   };
 
   const handlePrint = async () => {
-    const element = document.querySelector('.paper-container');
+    const element = document.querySelector('.paper-container') as HTMLElement;
     if (!element) {
       alert('Paper content not found!');
       return;
