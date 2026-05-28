@@ -24,7 +24,7 @@ export async function initQueue(): Promise<boolean> {
 
     redisConnection = client;
     assignmentQueue = new Queue('assignment-generation', {
-      connection: client,
+      connection: client as any,
       defaultJobOptions: {
         attempts: 3,
         backoff: { type: 'exponential', delay: 3000 },

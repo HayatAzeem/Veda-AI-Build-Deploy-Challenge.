@@ -93,7 +93,7 @@ export function startWorker() {
   const worker = new Worker(
     'assignment-generation',
     async (job: Job) => processGenerationJob(job.data.assignmentId),
-    { connection: workerRedis, concurrency: 2 }
+    { connection: workerRedis as any, concurrency: 2 }
   );
 
   worker.on('failed', async (job, err) => {
