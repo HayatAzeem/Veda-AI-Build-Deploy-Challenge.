@@ -86,7 +86,7 @@ export default function OutputPage() {
       // Dynamically import to avoid SSR issues
       const html2pdf = (await import('html2pdf.js')).default;
       
-      const opt = {
+      const opt: any = {
         margin:       10,
         filename:     `${assignment?.title || 'question_paper'}.pdf`,
         image:        { type: 'jpeg', quality: 0.98 },
