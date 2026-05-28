@@ -122,7 +122,7 @@ export async function runDirectJob(assignmentId: string, _data: object) {
     console.error('Direct job failed:', err.message);
     await Assignment.findByIdAndUpdate(assignmentId, {
       status: 'failed', errorMessage: err.message,
-    }).catch(() => {});
+    }).catch(() => { });
     wsService.broadcast({
       type: 'job:failed', assignmentId, status: 'failed',
       progress: 0, message: `Generation failed: ${err.message}`,
